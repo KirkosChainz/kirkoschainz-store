@@ -1,57 +1,99 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset */
+body, html {
     margin: 0;
     padding: 0;
-    text-align: center;
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
+/* Background overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background.jpeg') center/cover no-repeat;
+    opacity: 0.5;        /* change transparency here */
+    z-index: -1;
+}
+
+/* Header */
 header {
-    background-color: #333;
-    color: #fff;
+    background: #333;
+    color: white;
     padding: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
-#products-container {
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.carousel-track {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px;
+    transition: transform 0.5s ease-in-out;
 }
 
-.product-card {
-    border: 1px solid #ccc;
+.carousel-item {
+    min-width: 220px;
+    margin: 10px;
+    background: #fff;
     border-radius: 8px;
-    width: 250px;
-    margin: 15px;
-    padding: 15px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.product-card img {
+.carousel-item img {
     width: 100%;
     height: auto;
+    border-radius: 5px;
 }
 
-#cart {
-    border: 2px solid #333;
-    padding: 15px;
-    margin: 20px auto;
-    width: 300px;
-    text-align: left;
+.carousel-item h3,
+.carousel-item p {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-#cart-items li {
-    margin: 5px 0;
-}
-
-#cart button {
-    margin-left: 10px;
-    background-color: #e74c3c;
+/* Carousel buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
     color: white;
     border: none;
-    border-radius: 3px;
+    padding: 10px;
     cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 2;
 }
 
-#cart button:hover {
-    background-color: #c0392b;
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-item { min-width: 180px; }
+}
+
+@media (max-width: 480px) {
+    .carousel-item { min-width: 140px; }
 }
